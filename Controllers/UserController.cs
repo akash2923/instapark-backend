@@ -9,18 +9,19 @@ namespace instapark.Controllers
     [Route("/User")]
     public class UserController(IUserService userService) : ControllerBase
     {
-        //[HttpPost]
-        //[Route("signup")]
-        //public async Task<IActionResult> GetUser(GetUser getUser)
-        //{
-        //    var result = await userService.GetUser(getUser);
-        //    return result.ToActionResult();
-        //}
+        
         [HttpPost]
         [Route("signup")]
         public async Task<IActionResult> SignUp(SignUp signUp)
         {
             var result = await userService.SignUp(signUp);
+            return result.ToActionResult();
+        }
+        [HttpPost]
+        [Route("Booking")]
+        public async Task<IActionResult> BookingDetails(BookingDetails bookingDetails)
+        {
+            var result = await userService.BookingDetails(bookingDetails);
             return result.ToActionResult();
         }
 

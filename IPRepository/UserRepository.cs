@@ -40,7 +40,23 @@ namespace instapark.IPRepository
             catch(Exception ex) { }
             return response;
         }
-
+        public async Task<ServiceResponse> BookingDetails(BookingDetails bookingDetails)
+        {
+            var response = new ServiceResponse();
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@selectedSlots", bookingDetails.selectedSlot);
+                dynamicParameters.Add("@userName", bookingDetails.userName);
+                dynamicParameters.Add("@phoneNumber", bookingDetails.phoneNumber);
+                dynamicParameters.Add("@numberPlate", bookingDetails.numberPlate);
+                var dbrespose = await dapperSqlProvider.ExecuteProc<int>("GetBookingDetails", dynamicParameters);
+                response.Status = dbrespose.Status;
+                response.Messages = dbrespose.Messages;
+            }
+            catch(Exception ex) { }
+            return response;
+        }
 
     }
 

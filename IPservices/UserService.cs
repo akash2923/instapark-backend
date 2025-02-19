@@ -16,6 +16,11 @@ namespace instapark.IPservices
         {
             return await userRepository.SignUp(signUp);
         }
+        public async Task<ServiceResponse> BookingDetails(BookingDetails bookingDetails)
+        {
+            return await userRepository.BookingDetails(bookingDetails);
+        }
+
 
 
     }
