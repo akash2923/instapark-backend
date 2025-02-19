@@ -1,0 +1,6 @@
+@instapark_HostAddress = http://localhost:5284
+
+GET {{instapark_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
