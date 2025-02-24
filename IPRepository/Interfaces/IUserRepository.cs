@@ -7,6 +7,7 @@ namespace instapark.IPRepository.Interfaces
         public Task<ServiceResponseData<List<Users>>> GetUser(GetUser getUser);
         public Task<ServiceResponse> SignUp(SignUp signUp);
         public Task<ServiceResponse> BookingDetails(BookingDetails bookingDetails);
+        public Task<ServiceResponseData<List<CloseTheSlot>>> CloseTheSlot(ToCloseTheSlot toCloseTheSlot);
 
     }
 }

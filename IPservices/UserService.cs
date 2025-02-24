@@ -21,6 +21,10 @@ namespace instapark.IPservices
             return await userRepository.BookingDetails(bookingDetails);
         }
 
+        public async Task<ServiceResponseData<List<CloseTheSlot>>> CloseTheSlot(ToCloseTheSlot toCloseTheSlot)
+        {
+            return await userRepository.CloseTheSlot(toCloseTheSlot);
+        }
 
 
     }

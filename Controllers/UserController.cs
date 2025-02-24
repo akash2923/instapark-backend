@@ -25,6 +25,13 @@ namespace instapark.Controllers
             return result.ToActionResult();
         }
 
+        [HttpPost]
+        [Route("CloseTheSlot")]
+        public async Task<IActionResult> CloseTheSlot(ToCloseTheSlot toCloseTheSlot)
+        {
+            var result = await userService.CloseTheSlot(toCloseTheSlot);
+            return result.ToActionResult();
+        }
 
 
     }

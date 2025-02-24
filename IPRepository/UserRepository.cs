@@ -57,6 +57,24 @@ namespace instapark.IPRepository
             catch(Exception ex) { }
             return response;
         }
+        public async Task<ServiceResponseData<List<CloseTheSlot>>> CloseTheSlot(ToCloseTheSlot toCloseTheSlot)
+        {
+            var response = new ServiceResponseData<List<CloseTheSlot>>();
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@userName", toCloseTheSlot.userName);
+                var dbResponse = await dapperSqlProvider.ExecuteProc<CloseTheSlot>("CloseTheSlot", dynamicParameters);
+                response.Status = dbResponse.Status;
+                response.Messages = dbResponse.Messages;
+                response.Data = dbResponse.Data;
+            }
+            catch (Exception ex)
+            {
+            }
+            return response;
+
+        }
 
     }
 
