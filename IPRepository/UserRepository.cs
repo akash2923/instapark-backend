@@ -93,6 +93,23 @@ namespace instapark.IPRepository
             }
             return response;
         }
+        public async Task<ServiceResponseData<List<BlockedSlot>>> BlockedSlot(ToBlockedSlot toBlockedSlot)
+        {
+            var response = new ServiceResponseData<List<BlockedSlot>>();
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@mallName", toBlockedSlot.mallName);
+                var dbResponse = await dapperSqlProvider.ExecuteProc<BlockedSlot>("BlockedSlot", dynamicParameters);
+                response.Status = dbResponse.Status;
+                response.Messages = dbResponse.Messages;
+                response.Data = dbResponse.Data;
+            }
+            catch (Exception ex)
+            {
+            }
+            return response;
+        }
 
     }
 

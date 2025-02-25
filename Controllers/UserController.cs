@@ -40,7 +40,12 @@ namespace instapark.Controllers
             var result = await userService.CheckUserCredentials(toCheckUserCredentials);
             return result.ToActionResult();
         }
-
-
+        [HttpPost]
+        [Route("SeatsBlocked")]
+        public async Task<IActionResult> BlockedSlot(ToBlockedSlot toBlockedSlot)
+        {
+            var result = await userService.BlockedSlot(toBlockedSlot);
+            return result.ToActionResult();
+        }
     }
 }

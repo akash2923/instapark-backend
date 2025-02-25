@@ -29,7 +29,10 @@ namespace instapark.IPservices
         {
             return await userRepository.CheckUserCredentials(toCheckUserCredentials);
         }
-
+        public async Task<ServiceResponseData<List<BlockedSlot>>> BlockedSlot(ToBlockedSlot ToBlockedSlot)
+        {
+            return await userRepository.BlockedSlot(ToBlockedSlot);
+        }
 
     }
 }
