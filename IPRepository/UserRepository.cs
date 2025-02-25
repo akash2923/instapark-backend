@@ -75,6 +75,24 @@ namespace instapark.IPRepository
             return response;
 
         }
+        public async Task<ServiceResponseData<List<CheckUserCredentials>>> CheckUserCredentials(ToCheckUserCredentials toCheckUserCredentials)
+        {
+            var response = new ServiceResponseData<List<CheckUserCredentials>>();
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@userName", toCheckUserCredentials.userName);
+                dynamicParameters.Add("@passWord", toCheckUserCredentials.passWord);
+                var dbResponse = await dapperSqlProvider.ExecuteProc<CheckUserCredentials>("CheckUserCredentials", dynamicParameters);
+                response.Status = dbResponse.Status;
+                response.Messages = dbResponse.Messages;
+                response.Data = dbResponse.Data;
+            }
+            catch (Exception ex)
+            {
+            }
+            return response;
+        }
 
     }
 

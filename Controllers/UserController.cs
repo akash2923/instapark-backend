@@ -32,6 +32,14 @@ namespace instapark.Controllers
             var result = await userService.CloseTheSlot(toCloseTheSlot);
             return result.ToActionResult();
         }
+        [HttpPost]
+        [Route("signin")]
+
+        public async Task<IActionResult> CheckUserCredentials(ToCheckUserCredentials toCheckUserCredentials)
+        {
+            var result = await userService.CheckUserCredentials(toCheckUserCredentials);
+            return result.ToActionResult();
+        }
 
 
     }

@@ -25,6 +25,10 @@ namespace instapark.IPservices
         {
             return await userRepository.CloseTheSlot(toCloseTheSlot);
         }
+        public async Task<ServiceResponseData<List<CheckUserCredentials>>> CheckUserCredentials(ToCheckUserCredentials toCheckUserCredentials)
+        {
+            return await userRepository.CheckUserCredentials(toCheckUserCredentials);
+        }
 
 
     }
