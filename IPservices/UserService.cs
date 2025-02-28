@@ -33,6 +33,9 @@ namespace instapark.IPservices
         {
             return await userRepository.BlockedSlot(ToBlockedSlot);
         }
-
+        public async Task<ServiceResponse> SlotDeletion(SlotDeletion slotDeletion)
+        {
+            return await userRepository.SlotDeletion(slotDeletion);
+        }
     }
 }

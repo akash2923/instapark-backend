@@ -12,6 +12,7 @@ namespace instapark.IPservices.Interfaces
         public Task<ServiceResponseData<List<CheckUserCredentials>>> CheckUserCredentials(ToCheckUserCredentials toCheckUserCredentials);
 
         public Task<ServiceResponseData<List<BlockedSlot>>> BlockedSlot(ToBlockedSlot toBlockedSlot);
+        public Task<ServiceResponse> SlotDeletion(SlotDeletion slotDeletion);
 
 
     }

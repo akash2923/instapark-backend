@@ -47,5 +47,12 @@ namespace instapark.Controllers
             var result = await userService.BlockedSlot(toBlockedSlot);
             return result.ToActionResult();
         }
+        [HttpPost]
+        [Route("ConfirmClosing")]
+        public async Task<IActionResult> SlotDeletion(SlotDeletion slotDeletion)
+        {
+            var result = await userService.SlotDeletion(slotDeletion);
+            return result.ToActionResult();
+        }
     }
 }

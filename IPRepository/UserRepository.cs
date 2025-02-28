@@ -110,6 +110,27 @@ namespace instapark.IPRepository
             }
             return response;
         }
+        public async Task<ServiceResponse> SlotDeletion(SlotDeletion slotDeletion)
+        {
+            var response = new ServiceResponseData<ServiceResponse>();
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@userName", slotDeletion.userName);
+                dynamicParameters.Add("@selectedSlot", slotDeletion.selectedSlot);
+                var dbResponse = await dapperSqlProvider.ExecuteProc<int>("ConfirmClosing", dynamicParameters);
+                response.Status = dbResponse.Status;
+                response.Messages = dbResponse.Messages;
+                
+            }
+            catch (Exception ex) { }
+
+
+
+
+            return response;
+
+        }
 
     }
 
